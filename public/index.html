@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <h1>Gemini Chatbot</h1>
+    <h1>le chat avec l'ia de google</h1>
   </header>
   <main>
     <div id="chat"></div>
@@ -23,10 +23,8 @@
       const message = document.getElementById('userMessage').value;
       const chatDiv = document.getElementById('chat');
 
-      // Afficher le message de l'utilisateur
-      chatDiv.innerHTML += `<div class="message user">Vous: ${message}</div>`;
+      chatDiv.innerHTML += `<div class="message user">moi : ${message}</div>`;
 
-      // Envoyer la requête au serveur Node.js
       const response = await fetch('/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -35,13 +33,10 @@
       
       const data = await response.json();
       
-      // Afficher la réponse du chatbot
-      chatDiv.innerHTML += `<div class="message bot">Gemini: ${data.response}</div>`;
+      chatDiv.innerHTML += `<div class="message bot">ia de google : ${data.response}</div>`;
 
-      // Nettoyer le champ de texte
       document.getElementById('userMessage').value = '';
       
-      // Faire défiler le chat vers le bas
       chatDiv.scrollTop = chatDiv.scrollHeight;
     }
   </script>
